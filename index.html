@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LATIHAN SOAL ASSIKS PAKET 2 - MATEMATIKA SDN TRIMULYO 02</title>
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --primary-green: #28a745;
+            --danger-red: #dc3545;
+            --dark-color: #343a40;
+            --light-bg: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #eef2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1b4965;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* CARD STYLES */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        /* LOGIN PAGE */
+        #login-screen {
+            max-width: 500px;
+            margin: 40px auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-green {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .btn-green:hover {
+            background-color: #218838;
+        }
+
+        .btn-blue {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-blue:hover {
+            background-color: #0069d9;
+        }
+
+        .btn-red {
+            background-color: var(--danger-red);
+            color: white;
+        }
+
+        .btn-red:hover {
+            background-color: #c82333;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* EXAM PAGE LAYOUT */
+        #exam-screen {
+            display: none;
+        }
+
+        .exam-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .student-info {
+            font-weight: 600;
+        }
+
+        .timer-box {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            border: 1px solid #ffeeba;
+            font-size: 1.1rem;
+        }
+
+        .exam-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+        }
+
+        @media (max-width: 850px) {
+            .exam-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* QUESTION STYLES */
+        .question-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1b4965;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-item:hover {
+            background-color: #f1f3f5;
+        }
+
+        .option-item input[type="radio"], 
+        .option-item input[type="checkbox"] {
+            margin-top: 4px;
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .tf-table th, .tf-table td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .tf-table th {
+            background-color: #f1f3f5;
+        }
+
+        .tf-table td.center {
+            text-align: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        /* SIDEBAR NAVIGATION GRID */
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .nav-btn {
+            padding: 12px 5px;
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .nav-btn.answered {
+            background-color: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+
+        .nav-btn.current {
+            border: 3px solid #1b4965;
+            box-shadow: 0 0 5px rgba(27,73,101,0.5);
+        }
+
+        /* RESULT PAGE */
+        #result-screen {
+            display: none;
+        }
+
+        .alert-banner {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+
+        .score-box {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .score-val {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        /* MATRIX ANALYSIS TABLE */
+        .analysis-table-wrapper {
+            overflow-x: auto;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .matrix-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .matrix-table th, .matrix-table td {
+            border: 1px solid #ccc;
+            padding: 8px 4px;
+            min-width: 35px;
+        }
+
+        .matrix-table th {
+            background-color: #1b4965;
+            color: white;
+        }
+
+        .cell-correct {
+            background-color: #28a745 !important;
+            color: white;
+            font-weight: bold;
+        }
+
+        .cell-wrong {
+            background-color: #dc3545 !important;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* RANKING TABLE */
+        .rank-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .rank-table th, .rank-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .rank-table th {
+            background-color: #f1f3f5;
+        }
+
+        .rank-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* EXPLANATION SECTION */
+        .discussion-section {
+            margin-top: 30px;
+        }
+
+        .discussion-item {
+            border-left: 4px solid var(--primary-blue);
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .discussion-item h4 {
+            color: #1b4965;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SDN TRIMULYO 02 - KOTA SEMARANG</h1>
+    <p>LATIHAN SOAL ASSIKS PAKET 2 - MATEMATIKA KELAS 6</p>
+</header>
+
+<div class="container">
+    <!-- 1. LOGIN SCREEN -->
+    <div id="login-screen" class="card">
+        <h2 style="text-align: center; margin-bottom: 20px; color: #1b4965;">Login Peserta Ujian</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="student-name">Nama Peserta:</label>
+                <input type="text" id="student-name" required placeholder="Masukkan Nama Lengkap">
+            </div>
+            <div class="form-group">
+                <label for="student-no">Nomor Absen:</label>
+                <input type="number" id="student-no" required placeholder="Masukkan Nomor Absen">
+            </div>
+            <div class="form-group">
+                <label for="student-class">Kelas:</label>
+                <select id="student-class" required>
+                    <option value="">-- Pilih Kelas --</option>
+                    <option value="6A">Kelas 6A</option>
+                    <option value="6B">Kelas 6B</option>
+                    <option value="6C">Kelas 6C</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-green btn-block">Mulai Ujian</button>
+        </form>
+    </div>
+
+    <!-- 2. EXAM SCREEN -->
+    <div id="exam-screen">
+        <div class="exam-header">
+            <div class="student-info" id="display-student-info">
+                Nama: - | Absen: - | Kelas: -
+            </div>
+            <div class="timer-box" id="timer-display">
+                Sisa Waktu: 70:00
+            </div>
+        </div>
+
+        <div class="exam-grid">
+            <!-- MAIN QUESTION CARD -->
+            <div class="card">
+                <div class="question-number" id="q-number">Soal 1</div>
+                <div class="question-text" id="q-text">Loading Soal...</div>
+                <div id="q-content"></div>
+
+                <div class="nav-buttons">
+                    <button type="button" id="btn-prev" class="btn btn-blue" onclick="prevQuestion()" style="display:none;">Soal Sebelumnya</button>
+                    <div></div> <!-- Spacer -->
+                    <button type="button" id="btn-next" class="btn btn-green" onclick="nextQuestion()">Soal Selanjutnya</button>
+                    <button type="button" id="btn-finish" class="btn btn-red" onclick="finishExam(false)" style="display:none;">Selesaikan Ujian</button>
+                </div>
+            </div>
+
+            <!-- SIDEBAR NAV GRID -->
+            <div class="card">
+                <div class="sidebar-title">Daftar Soal</div>
+                <div class="nav-grid" id="nav-grid-buttons">
+                    <!-- Nav buttons (1-30) populated via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. RESULT SCREEN -->
+    <div id="result-screen">
+        <div id="result-banner" class="alert-banner alert-success">
+            Selamat, Anda telah menyelesaikan tugas !
+        </div>
+
+        <div class="card">
+            <h2 style="text-align: center; color: #1b4965;">Rekap Hasil Ujian</h2>
+            <div class="score-box">
+                <div>Skor Akhir Anda:</div>
+                <div class="score-val" id="final-score">0</div>
+                <div id="score-summary">Benar: 0 / 30</div>
+            </div>
+
+            <h3>Analisis Jawaban Siswa Per-Soal</h3>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Hijau = Benar | Merah = Salah</p>
+            <div class="analysis-table-wrapper">
+                <table class="matrix-table" id="matrix-table">
+                    <!-- Populated dynamically -->
+                </table>
+            </div>
+
+            <h3>Rekap Peringkat Peserta Ujian</h3>
+            <table class="rank-table">
+                <thead>
+                    <tr>
+                        <th>Peringkat</th>
+                        <th>Nama Peserta</th>
+                        <th>Kelas</th>
+                        <th>No Absen</th>
+                        <th>Skor</th>
+                    </tr>
+                </thead>
+                <tbody id="rank-tbody">
+                    <!-- Populated dynamically -->
+                </tbody>
+            </table>
+
+            <div style="margin-top: 25px; text-align: center;">
+                <button type="button" class="btn btn-red" onclick="exitApp()">Keluar Aplikasi</button>
+            </div>
+        </div>
+
+        <!-- DISCUSSION SECTION -->
+        <div class="card discussion-section">
+            <h3 style="margin-bottom: 20px; color: #1b4965;">Kunci Jawaban dan Pembahasan Lengkap</h3>
+            <div id="discussion-list">
+                <!-- Discussions populated via JS -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// DATA SOAL DAN KUNCI JAWABAN SESUAI LAMPIRAN DOCUMENT MATH GEL 1
+const questionsData = [
+    {
+        id: 1,
+        type: "tf_matrix",
+        text: "1. Perhatikan gambar!\nManakah gambar berikut yang senilai dengan gambar tersebut?\n(Gambar awal: 1 dari 2 bagian diarsir = 1/2)",
+        subItems: [
+            "Gambar 1: 1 dari 2 bagian diarsir (1/2)",
+            "Gambar 2: 3 dari 5 bagian diarsir (3/5)",
+            "Gambar 3: 3 dari 6 bagian diarsir (3/6 = 1/2)"
+        ],
+        key: ["Benar", "Salah", "Benar"],
+        explanation: "Arsiran awal menunjukkan nilai pecahan 1/2. Gambar 1 = 1/2 (Benar). Gambar 2 = 3/5 (Salah). Gambar 3 = 3/6 = 1/2 (Benar)."
+    },
+    {
+        id: 2,
+        type: "mcq",
+        text: "2. Pada kegiatan penghijauan sekolah, murid mencatat data bagian tanaman:\n- Tanaman Bunga = 2/5 = 0,40\n- Tanaman Obat = 0,30\n- Tanaman Hias = 25% = 0,25\n- Tanaman Buah = 1/20 = 0,05\n\nUrutan jenis tanaman berdasarkan jumlahnya dari yang TERBANYAK adalah ...",
+        options: [
+            "A. tanaman bunga, tanaman obat, tanaman hias, tanaman buah",
+            "B. tanaman bunga, tanaman hias, tanaman obat, tanaman buah",
+            "C. tanaman obat, tanaman bunga, tanaman hias, tanaman buah",
+            "D. tanaman buah, tanaman hias, tanaman obat, tanaman bunga"
+        ],
+        key: "A",
+        explanation: "Pecahan diubah ke bentuk desimal: Bunga = 0,40; Obat = 0,30; Hias = 0,25; Buah = 0,05. Urutan terbanyak: Bunga, Obat, Hias, Buah (Pilihan A)."
+    },
+    {
+        id: 3,
+        type: "mcq",
+        text: "3. Andi membagi kue ulang tahun:\n- Andi = 35% = 0,35\n- Budi = 1/4 = 0,25\n- Citra = 0,20\n- Sisanya untuk Dika.\nBagian kue yang diterima Dika adalah ...",
+        options: ["A. 0,15", "B. 0,20", "C. 0,25", "D. 0,30"],
+        key: "B",
+        explanation: "Total kue = 1,00. Bagian Dika = 1,00 - (0,35 + 0,25 + 0,20) = 1,00 - 0,80 = 0,20 (Pilihan B)."
+    },
+    {
+        id: 4,
+        type: "mcq",
+        text: "4. Hasil dari 1 (1/2) + (2/5) × 0,5 adalah ....",
+        options: ["A. 0,95", "B. 1,00", "C. 1,70", "D. 1,90"],
+        key: "C",
+        explanation: "1,5 + (0,4 × 0,5) = 1,5 + 0,20 = 1,70 (Pilihan C)."
+    },
+    {
+        id: 5,
+        type: "mcq",
+        text: "5. Perpustakaan menerima 18 kardus buku cerita, masing-masing berisi 135 buku. Dibagikan ke 6 kelas secara merata. Banyak buku yang diterima setiap kelas adalah ...",
+        options: ["A. 45 buku", "B. 400 buku", "C. 405 buku", "D. 415 buku"],
+        key: "C",
+        explanation: "Total buku = 18 × 135 = 2.430. Per kelas = 2.430 : 6 = 405 buku (Pilihan C)."
+    },
+    {
+        id: 6,
+        type: "mcq",
+        text: "6. Desa menerima 15 karung beras masing-masing berisi 20 kg. Dimasak 60 kg. Sisa beras dikemas ke dalam kantong berkapasitas 10 kg. Kalimat matematika yang tepat adalah ...",
+        options: [
+            "A. 15 × (20 - 60) : 10",
+            "B. (15 × 20 - 60) : 10",
+            "C. 15 × 20 : 10 - 60",
+            "D. (15 + 20 - 60) : 10"
+        ],
+        key: "B",
+        explanation: "Total beras = (15 × 20), dikurangi dimasak 60 kg = (15 × 20 - 60), lalu dibagi kantong 10 kg = (15 × 20 - 60) : 10 (Pilihan B)."
+    },
+    {
+        id: 7,
+        type: "checkbox",
+        text: "7. Kincir A = 88 watt/hari, Kincir B = 97 watt/hari, Kincir C = 85 watt/hari. Digunakan selama 2 hari. Sisa daya: A = 24 watt, B = 31 watt, C = 22 watt.\nDaya kincir mana saja yang telah digunakan warga LEBIH DARI 150 watt? (Jawaban centang bisa lebih dari satu)",
+        options: [
+            "Kincir A (Daya 2 hari = 176, terpakai = 176 - 24 = 152 watt)",
+            "Kincir B (Daya 2 hari = 194, terpakai = 194 - 31 = 163 watt)",
+            "Kincir C (Daya 2 hari = 170, terpakai = 170 - 22 = 148 watt)"
+        ],
+        key: [0, 1], // Indeks 0 & 1 (Kincir A dan B)
+        explanation: "Terpakai A = 152 watt (>150). Terpakai B = 163 watt (>150). Terpakai C = 148 watt (<150). Jadi yang benar Kincir A dan B."
+    },
+    {
+        id: 8,
+        type: "mcq",
+        text: "8. Dayu latihan 6 hari sekali, Beno 8 hari sekali. Pada 20 Februari 2026 mereka latihan bersama. Kapan mereka akan latihan bersama lagi?",
+        options: ["A. 22 Februari 2026", "B. 26 Februari 2026", "C. 14 Maret 2026", "D. 16 Maret 2026"],
+        key: "D",
+        explanation: "KPK dari 6 dan 8 adalah 24 hari. Tanggal bersama = 20 Februari + 24 hari = 44. Februari 2026 ada 28 hari -> 44 - 28 = 16 Maret 2026 (Pilihan D)."
+    },
+    {
+        id: 9,
+        type: "checkbox",
+        text: "9. Kue bolu 24, pisang goreng 30, kue lapis 36 disajikan dalam piring sama banyak. Pilih pernyataan yang benar! (Jawaban lebih dari satu)",
+        options: [
+            "Piring yang diperlukan berjumlah 6",
+            "Jumlah pisang goreng tiap piring adalah 3",
+            "Jumlah kue bolu tiap piring adalah 4"
+        ],
+        key: [0, 2], // Pernyataan 1 dan 3
+        explanation: "FPB dari 24, 30, dan 36 adalah 6 piring. Tiap piring: Bolu = 24/6 = 4, Pisang = 30/6 = 5, Lapis = 36/6 = 6. Pernyataan 1 dan 3 Benar."
+    },
+    {
+        id: 10,
+        type: "mcq",
+        text: "10. Bangun datar dengan ciri: 4 sisi sama panjang, sudut berhadapan sama besar, diagonal berpotongan tegak lurus membagi dua sama panjang adalah ...",
+        options: ["A. Persegi Panjang", "B. Trapesium", "C. Jajar Genjang", "D. Belah Ketupat"],
+        key: "D",
+        explanation: "Ciri-ciri tersebut adalah sifat khas bangun Belah Ketupat (Pilihan D)."
+    },
+    {
+        id: 11,
+        type: "tf_matrix",
+        text: "11. Hiasan kelas berbentuk huruf F sebagai bidang datar. Tentukan Benar/Salah untuk ciri-cirinya!",
+        subItems: [
+            "Memiliki 10 sisi",
+            "Terdapat 10 titik sudut",
+            "Terdapat 4 sudut siku-siku"
+        ],
+        key: ["Benar", "Salah", "Salah"],
+        explanation: "Huruf F memiliki 10 sisi (Benar), 10 titik sudut (Benar), tetapi sudut siku-sikunya berjumlah 8 (Salah)."
+    },
+    {
+        id: 12,
+        type: "tf_matrix",
+        text: "12. Pola pengubinan segi banyak. Tentukan Benar/Salah susunannya!",
+        subItems: [
+            "2 segitiga, 5 persegi",
+            "2 segitiga, 2 trapesium",
+            "2 segitiga, 2 persegi, 1 jajar genjang"
+        ],
+        key: ["Benar", "Benar", "Salah"],
+        explanation: "Pola dapat disusun oleh 2 segitiga & 5 persegi (Benar), atau 2 segitiga & 2 trapesium (Benar)."
+    },
+    {
+        id: 13,
+        type: "mcq",
+        text: "13. Susunan kubus mainan Salim. Manakah permukaan tampak depan yang tepat?",
+        options: ["A. Opsi A", "B. Opsi B", "C. Opsi C", "D. Opsi D"],
+        key: "C",
+        explanation: "Proyeksi tampak depan membentuk susunan 3 kolom sesuai pola C (Pilihan C)."
+    },
+    {
+        id: 14,
+        type: "checkbox",
+        text: "14. Hasil pengukuran paling tepat. Pilih yang benar! (Lebih dari satu)",
+        options: [
+            "Tinggi pintu kelas Rina adalah 2 milimeter",
+            "Lebar jendela kelas Rina adalah 80 centimeter",
+            "Jarak sekolah ke rumah Rina adalah 300 meter"
+        ],
+        key: [1, 2], // 2 dan 3
+        explanation: "Tinggi pintu 2 mm tidak masuk akal (harus ~2 m). Lebar jendela 80 cm dan jarak 300 m adalah masuk akal (Benar)."
+    },
+    {
+        id: 15,
+        type: "mcq",
+        text: "15. Jarak = 120 km, Kecepatan = 80 km/jam, Berhenti = 15 menit. Tiba pukul 09.30 WIB. Waktu berangkat adalah ...",
+        options: ["A. 08.00 WIB", "B. 07.50 WIB", "C. 07.45 WIB", "D. 07.30 WIB"],
+        key: "C",
+        explanation: "Waktu tempuh = 120 / 80 = 1,5 jam (1 jam 30 menit). Total perjalanan + istirahat = 1 jam 45 menit. Waktu berangkat = 09.30 - 1 jam 45 mnt = 07.45 WIB (Pilihan C)."
+    },
+    {
+        id: 16,
+        type: "mcq",
+        text: "16. Tiba 09.30. Kegiatan 1 = 50 menit, Kegiatan 2 = 3/4 jam (45 menit). Rencana selesai sebelum makan siang 11.15 WIB. Kesimpulan yang tepat adalah ...",
+        options: [
+            "A. Kegiatan selesai 20 menit sebelum waktu makan siang.",
+            "B. Kegiatan selesai 10 menit sebelum waktu makan siang.",
+            "C. Kegiatan selesai tepat waktu saat makan siang.",
+            "D. Kegiatan selesai melewati waktu makan siang."
+        ],
+        key: "B",
+        explanation: "Total durasi = 50 mnt + 45 mnt = 95 mnt (1 jam 35 mnt). Selesai pukul 09.30 + 1 jam 35 mnt = 11.05 WIB. Selisih ke 11.15 = 10 menit sebelum makan siang (Pilihan B)."
+    },
+    {
+        id: 17,
+        type: "mcq",
+        text: "17. Kapasitas toren = 1,5 m³, tersisa 75.000 cm³. Air yang harus ditambahkan agar penuh kembali adalah ...",
+        options: ["A. 75 liter", "B. 925 liter", "C. 1.425 liter", "D. 1.575 liter"],
+        key: "C",
+        explanation: "1,5 m³ = 1.500 liter. Sisa = 75.000 cm³ = 75 liter. Kekurangan = 1.500 - 75 = 1.425 liter (Pilihan C)."
+    },
+    {
+        id: 18,
+        type: "tf_matrix",
+        text: "18. Hasil penimbangan bahan makanan Bu Ani (Tepung = 1.500 g, Telur = 3 kg, Beras = 2 kg). Tentukan Benar/Salah!",
+        subItems: [
+            "Berat beras dan telur berurutan yaitu 2.000 gram dan 3.000 gram.",
+            "Total berat belanja Bu Ani adalah 7,5 kg.",
+            "Selisih berat tepung terigu dan beras adalah 500 gram."
+        ],
+        key: ["Benar", "Salah", "Benar"],
+        explanation: "a. Beras 2 kg = 2.000g, Telur 3 kg = 3.000g (Benar). b. Total = 1,5 + 3 + 2 = 6,5 kg (Salah). c. Selisih Beras - Terigu = 2.000 - 1.500 = 500g (Benar)."
+    },
+    {
+        id: 19,
+        type: "mcq",
+        text: "19. Kenzo mulai belajar 18.30 WIB. Bahasa Indonesia = 1 jam 40 menit, Matematika = 1 jam 25 menit. Kenzo selesai belajar pada pukul ...",
+        options: ["A. 21.15 WIB", "B. 21.25 WIB", "C. 21.35 WIB", "D. 21.45 WIB"],
+        key: "C",
+        explanation: "Total belajar = 1j 40m + 1j 25m = 3 jam 5 menit. Pukul selesai = 18.30 + 3j 05m = 21.35 WIB (Pilihan C)."
+    },
+    {
+        id: 20,
+        type: "mcq",
+        text: "20. Persegi panjang dengan panjang = 12 cm dan Keliling = 40 cm. Berapakah lebar sisi yang belum diketahui?",
+        options: ["A. 6 cm", "B. 8 cm", "C. 10 cm", "D. 12 cm"],
+        key: "B",
+        explanation: "Keliling = 2 × (p + l) -> 40 = 2 × (12 + l) -> 20 = 12 + l -> l = 8 cm (Pilihan B)."
+    },
+    {
+        id: 21,
+        type: "mcq",
+        text: "21. Segitiga dengan alas 12 cm dan tinggi 8 cm. Berapakah luas segitiga tersebut?",
+        options: ["A. 36 cm²", "B. 48 cm²", "C. 96 cm²", "D. 192 cm²"],
+        key: "B",
+        explanation: "Luas = 1/2 × alas × tinggi = 1/2 × 12 × 8 = 48 cm² (Pilihan B)."
+    },
+    {
+        id: 22,
+        type: "mcq",
+        text: "22. Dinding rumah berbentuk gabungan Persegi Panjang (18 cm x 9 cm) dan Segitiga (alas 18 cm, tinggi total 21-9 = 12 cm). Luas seluruhnya adalah ...",
+        options: ["A. 216 cm²", "B. 270 cm²", "C. 288 cm²", "D. 378 cm²"],
+        key: "B",
+        explanation: "Luas PP = 18 × 9 = 162 cm². Luas Segitiga = 1/2 × 18 × 12 = 108 cm². Luas Total = 162 + 108 = 270 cm² (Pilihan B)."
+    },
+    {
+        id: 23,
+        type: "mcq",
+        text: "23. Mainan gabungan Kubus (5x5x5) dan Balok (5x5x10). Berapakah volume total mainan tersebut?",
+        options: ["A. 250 cm³", "B. 300 cm³", "C. 375 cm³", "D. 500 cm³"],
+        key: "C",
+        explanation: "Volume Kubus = 5 × 5 × 5 = 125 cm³. Volume Balok = 5 × 5 × 10 = 250 cm³. Total Volume = 125 + 250 = 375 cm³ (Pilihan C)."
+    },
+    {
+        id: 24,
+        type: "mcq",
+        text: "24. Berat sampah: Sen=2,8kg, Sel=3,1kg, Rab=2,2kg, Kam=3,4kg, Jum=2,9kg. Pembulatan ke satuan terdekat: Sen=3, Sel=3, Rab=2, Kam=3, Jum=3. Taksiran total berat adalah ...",
+        options: ["A. 13 kg", "B. 14 kg", "C. 15 kg", "D. 16 kg"],
+        key: "B",
+        explanation: "Taksiran: 3 + 3 + 2 + 3 + 3 = 14 kg (Pilihan B)."
+    },
+    {
+        id: 25,
+        type: "mcq",
+        text: "25. Bendera regu berbentuk segitiga dengan sudut 65° dan 45°. Besar sudut a adalah ...",
+        options: ["A. 50°", "B. 60°", "C. 70°", "D. 90°"],
+        key: "C",
+        explanation: "Jumlah sudut segitiga = 180°. Sudut a = 180° - (65° + 45°) = 180° - 110° = 70° (Pilihan C)."
+    },
+    {
+        id: 26,
+        type: "mcq",
+        text: "26. Data Hobi: Sepakbola=10, Basket=3, Bulutangkis=5, Renang=2, Catur=8. Selisih terbanyak (Sepakbola=10) dan tersedikit (Renang=2) adalah ...",
+        options: ["A. 2", "B. 4", "C. 6", "D. 8"],
+        key: "D",
+        explanation: "Selisih = 10 - 2 = 8 anak (Pilihan D)."
+    },
+    {
+        id: 27,
+        type: "checkbox",
+        text: "27. Diagram Ukuran Baju: S=8, M=12, L=10, XL=6, XXL=4. Pilih pernyataan yang benar! (Lebih dari satu)",
+        options: [
+            "Ukuran baju murid yang paling banyak adalah M",
+            "Jumlah murid yang diukur bajunya adalah 60 anak",
+            "Jumlah murid yang memiliki ukuran L lebih banyak 6 anak dari ukuran XXL"
+        ],
+        key: [0, 2], // Pernyataan A dan C
+        explanation: "A. Paling banyak M=12 (Benar). B. Total = 8+12+10+6+4 = 40 anak (Salah). C. L - XXL = 10 - 4 = 6 anak (Benar)."
+    },
+    {
+        id: 28,
+        type: "mcq",
+        text: "28. Piktogram Buku Fiksi = 5 simbol buku. Setiap 1 simbol mewakili 5 buku. Banyak buku fiksi yang dipinjam adalah ...",
+        options: ["A. 5", "B. 10", "C. 20", "D. 25"],
+        key: "D",
+        explanation: "Buku Fiksi = 5 × 5 = 25 buku (Pilihan D)."
+    },
+    {
+        id: 29,
+        type: "tf_matrix",
+        text: "29. Penjualan Sepeda: Gunung (Mar 25, Apr 20, Mei 20, Jun 15), Lipat (Mar 20, Apr 15, Mei 10, Jun 25). Tentukan Benar/Salah!",
+        subItems: [
+            "Jumlah penjualan sepeda gunung selama empat bulan tersebut adalah 80 unit.",
+            "Jumlah penjualan sepeda lipat dari bulan Mei ke bulan Juni mengalami peningkatan.",
+            "Jumlah penjualan sepeda gunung setiap bulan lebih tinggi daripada jumlah penjualan sepeda lipat."
+        ],
+        key: ["Benar", "Benar", "Salah"],
+        explanation: "a. Gunung = 25+20+20+15 = 80 unit (Benar). b. Lipat Mei(10) ke Juni(25) meningkat (Benar). c. Pada bulan Juni, Sepeda lipat (25) lebih tinggi dari gunung (15) (Salah)."
+    },
+    {
+        id: 30,
+        type: "mcq",
+        text: "30. Daftar Harga Catering: Ayam=14rb, Ikan=16rb, Daging=18rb, Telur=12rb, Tahu Tempe=10rb. Pelanggan membayar Rp40.000,00 untuk 3 menu berbeda. Menu yang dipilih adalah ...",
+        options: [
+            "A. ayam, ikan, dan telur (14+16+12 = 42rb)",
+            "B. ikan, telur, dan tahu tempe (16+12+10 = 38rb)",
+            "C. telur, daging, dan tahu tempe (12+18+10 = 40rb)",
+            "D. daging, ayam, dan telur (18+14+12 = 44rb)"
+        ],
+        key: "C",
+        explanation: "Telur (12.000) + Daging (18.000) + Tahu Tempe (10.000) = Rp40.000,00 (Pilihan C)."
+    }
+];
+
+// DUMMY RANKING DATA
+let rankings = [
+    { name: "Siti Rahma", class: "6A", no: "15", score: 96.7 },
+    { name: "Ahmad Rizky", class: "6B", no: "03", score: 93.3 },
+    { name: "Dewi Lestari", class: "6A", no: "08", score: 90.0 },
+    { name: "Budi Santoso", class: "6C", no: "05", score: 86.7 }
+];
+
+// STATE MANAGEMENT
+let currentQuestionIndex = 0;
+let userAnswers = {};
+let studentInfo = {};
+let timerInterval = null;
+let timeLeft = 70 * 60; // 70 Menit
+
+// INITIALIZATION
+window.onload = function() {
+    renderNavButtons();
+    document.getElementById('login-form').addEventListener('submit', startExam);
+};
+
+function renderNavButtons() {
+    const grid = document.getElementById('nav-grid-buttons');
+    grid.innerHTML = '';
+    for (let i = 0; i < questionsData.length; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'nav-btn';
+        btn.id = `nav-btn-${i}`;
+        btn.innerText = i + 1;
+        btn.onclick = () => jumpToQuestion(i);
+        grid.appendChild(btn);
+    }
+}
+
+function startExam(e) {
+    e.preventDefault();
+    studentInfo = {
+        name: document.getElementById('student-name').value,
+        no: document.getElementById('student-no').value,
+        class: document.getElementById('student-class').value
+    };
+
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('exam-screen').style.display = 'block';
+
+    document.getElementById('display-student-info').innerText = 
+        `Nama: ${studentInfo.name} | Absen: ${studentInfo.no} | Kelas: ${studentInfo.class}`;
+
+    loadQuestion(0);
+    startTimer();
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        document.getElementById('timer-display').innerText = 
+            `Sisa Waktu: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            finishExam(true);
+        }
+    }, 1000);
+}
+
+function loadQuestion(index) {
+    currentQuestionIndex = index;
+    const q = questionsData[index];
+
+    document.getElementById('q-number').innerText = `Soal ${index + 1} dari 30`;
+    document.getElementById('q-text').innerText = q.text;
+
+    const contentDiv = document.getElementById('q-content');
+    contentDiv.innerHTML = '';
+
+    if (q.type === 'mcq') {
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = 'options-container';
+
+        q.options.forEach(opt => {
+            const label = document.createElement('label');
+            label.className = 'option-item';
+            const optVal = opt.charAt(0);
+
+            const isChecked = userAnswers[q.id] === optVal;
+            label.innerHTML = `
+                <input type="radio" name="q_${q.id}" value="${optVal}" ${isChecked ? 'checked' : ''} onchange="saveAnswer(${q.id}, '${optVal}')">
+                <span>${opt}</span>
+            `;
+            optionsDiv.appendChild(label);
+        });
+        contentDiv.appendChild(optionsDiv);
+    } 
+    else if (q.type === 'checkbox') {
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = 'options-container';
+
+        const currentAns = userAnswers[q.id] || [];
+
+        q.options.forEach((opt, idx) => {
+            const label = document.createElement('label');
+            label.className = 'option-item';
+            const isChecked = currentAns.includes(idx);
+
+            label.innerHTML = `
+                <input type="checkbox" value="${idx}" ${isChecked ? 'checked' : ''} onchange="saveCheckboxAnswer(${q.id}, ${idx})">
+                <span>${opt}</span>
+            `;
+            optionsDiv.appendChild(label);
+        });
+        contentDiv.appendChild(optionsDiv);
+    } 
+    else if (q.type === 'tf_matrix') {
+        let html = `<table class="tf-table">
+            <thead>
+                <tr>
+                    <th>Pernyataan</th>
+                    <th style="width:90px;" class="center">Benar</th>
+                    <th style="width:90px;" class="center">Salah</th>
+                </tr>
+            </thead>
+            <tbody>`;
+        
+        const currentAns = userAnswers[q.id] || {};
+
+        q.subItems.forEach((sub, sIdx) => {
+            const val = currentAns[sIdx] || '';
+            html += `
+                <tr>
+                    <td>${sub}</td>
+                    <td class="center"><input type="radio" name="tf_${q.id}_${sIdx}" value="Benar" ${val === 'Benar' ? 'checked' : ''} onchange="saveTFAnswer(${q.id}, ${sIdx}, 'Benar')"></td>
+                    <td class="center"><input type="radio" name="tf_${q.id}_${sIdx}" value="Salah" ${val === 'Salah' ? 'checked' : ''} onchange="saveTFAnswer(${q.id}, ${sIdx}, 'Salah')"></td>
+                </tr>
+            `;
+        });
+        html += `</tbody></table>`;
+        contentDiv.innerHTML = html;
+    }
+
+    updateNavGrid();
+    updateControls();
+}
+
+function saveAnswer(qId, val) {
+    userAnswers[qId] = val;
+    updateNavGrid();
+}
+
+function saveCheckboxAnswer(qId, index) {
+    if (!userAnswers[qId]) userAnswers[qId] = [];
+    const pos = userAnswers[qId].indexOf(index);
+    if (pos === -1) {
+        userAnswers[qId].push(index);
+    } else {
+        userAnswers[qId].splice(pos, 1);
+    }
+    updateNavGrid();
+}
+
+function saveTFAnswer(qId, subIdx, val) {
+    if (!userAnswers[qId]) userAnswers[qId] = {};
+    userAnswers[qId][subIdx] = val;
+    updateNavGrid();
+}
+
+function updateNavGrid() {
+    for (let i = 0; i < questionsData.length; i++) {
+        const q = questionsData[i];
+        const btn = document.getElementById(`nav-btn-${i}`);
+        
+        // Remove existing current class
+        btn.classList.remove('current');
+        if (i === currentQuestionIndex) {
+            btn.classList.add('current');
+        }
+
+        // Check if answered
+        let answered = false;
+        const ans = userAnswers[q.id];
+
+        if (q.type === 'mcq' && ans) answered = true;
+        else if (q.type === 'checkbox' && ans && ans.length > 0) answered = true;
+        else if (q.type === 'tf_matrix' && ans && Object.keys(ans).length === q.subItems.length) answered = true;
+
+        if (answered) {
+            btn.classList.add('answered');
+        } else {
+            btn.classList.remove('answered');
+        }
+    }
+}
+
+function updateControls() {
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnFinish = document.getElementById('btn-finish');
+
+    if (currentQuestionIndex === 0) {
+        btnPrev.style.display = 'none';
+    } else {
+        btnPrev.style.display = 'inline-block';
+    }
+
+    if (currentQuestionIndex === questionsData.length - 1) {
+        btnNext.style.display = 'none';
+        btnFinish.style.display = 'inline-block';
+    } else {
+        btnNext.style.display = 'inline-block';
+        btnFinish.style.display = 'none';
+    }
+}
+
+function nextQuestion() {
+    if (currentQuestionIndex < questionsData.length - 1) {
+        loadQuestion(currentQuestionIndex + 1);
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        loadQuestion(currentQuestionIndex - 1);
+    }
+}
+
+function jumpToQuestion(index) {
+    loadQuestion(index);
+}
+
+function finishExam(isTimeOut = false) {
+    if (!isTimeOut && !confirm("Apakah Anda yakin ingin menyelesaikannya?")) {
+        return;
+    }
+
+    clearInterval(timerInterval);
+
+    document.getElementById('exam-screen').style.display = 'none';
+    document.getElementById('result-screen').style.display = 'block';
+
+    const banner = document.getElementById('result-banner');
+    if (isTimeOut) {
+        banner.className = 'alert-banner alert-warning';
+        banner.innerText = 'Maaf waktu habis, terima kasih atas partisipasinya!';
+    } else {
+        banner.className = 'alert-banner alert-success';
+        banner.innerText = 'Selamat, Anda telah menyelesaikan tugas !';
+    }
+
+    calculateScore();
+}
+
+function calculateScore() {
+    let correctCount = 0;
+    let evalResults = []; // true / false per question
+
+    questionsData.forEach(q => {
+        let isCorrect = false;
+        const uAns = userAnswers[q.id];
+
+        if (q.type === 'mcq') {
+            if (uAns === q.key) isCorrect = true;
+        } 
+        else if (q.type === 'checkbox') {
+            if (uAns && Array.isArray(uAns)) {
+                const sortedU = [...uAns].sort().join(',');
+                const sortedK = [...q.key].sort().join(',');
+                if (sortedU === sortedK) isCorrect = true;
+            }
+        } 
+        else if (q.type === 'tf_matrix') {
+            if (uAns && typeof uAns === 'object') {
+                let allSubCorrect = true;
+                q.subItems.forEach((_, sIdx) => {
+                    if (uAns[sIdx] !== q.key[sIdx]) {
+                        allSubCorrect = false;
+                    }
+                });
+                if (allSubCorrect) isCorrect = true;
+            }
+        }
+
+        if (isCorrect) correctCount++;
+        evalResults.push(isCorrect);
+    });
+
+    const finalScore = parseFloat(((correctCount / questionsData.length) * 100).toFixed(1));
+
+    document.getElementById('final-score').innerText = finalScore;
+    document.getElementById('score-summary').innerText = `Benar: ${correctCount} / ${questionsData.length}`;
+
+    // Render Matrix Analysis Table (30 Columns)
+    renderMatrixTable(evalResults);
+
+    // Update Rankings Table
+    rankings.push({
+        name: studentInfo.name,
+        class: studentInfo.class,
+        no: studentInfo.no,
+        score: finalScore
+    });
+
+    // Sort descending
+    rankings.sort((a, b) => b.score - a.score);
+
+    renderRankings();
+
+    // Render Discussion
+    renderDiscussion();
+}
+
+function renderMatrixTable(evalResults) {
+    const table = document.getElementById('matrix-table');
+    
+    let headerRow = '<tr><th>Peserta</th>';
+    for (let i = 1; i <= 30; i++) {
+        headerRow += `<th>S${i}</th>`;
+    }
+    headerRow += '</tr>';
+
+    let bodyRow = `<tr><td>${studentInfo.name}</td>`;
+    evalResults.forEach((res, i) => {
+        const bgClass = res ? 'cell-correct' : 'cell-wrong';
+        const mark = res ? '✓' : '✗';
+        bodyRow += `<td class="${bgClass}">${mark}</td>`;
+    });
+    bodyRow += '</tr>';
+
+    table.innerHTML = `<thead>${headerRow}</thead><tbody>${bodyRow}</tbody>`;
+}
+
+function renderRankings() {
+    const tbody = document.getElementById('rank-tbody');
+    tbody.innerHTML = '';
+
+    rankings.forEach((rk, index) => {
+        const tr = document.createElement('tr');
+        if (rk.name === studentInfo.name && rk.no === studentInfo.no) {
+            tr.style.fontWeight = 'bold';
+            tr.style.backgroundColor = '#e8f4f8';
+        }
+
+        tr.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${rk.name}</td>
+            <td>${rk.class}</td>
+            <td>${rk.no}</td>
+            <td>${rk.score}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function renderDiscussion() {
+    const list = document.getElementById('discussion-list');
+    list.innerHTML = '';
+
+    questionsData.forEach((q, idx) => {
+        const div = document.createElement('div');
+        div.className = 'discussion-item';
+
+        let keyDisplay = '';
+        if (q.type === 'mcq') keyDisplay = q.key;
+        else if (q.type === 'checkbox') keyDisplay = q.key.map(k => `Opsi ${k+1}`).join(', ');
+        else if (q.type === 'tf_matrix') keyDisplay = q.key.join(' - ');
+
+        div.innerHTML = `
+            <h4>Soal No. ${idx + 1}</h4>
+            <p style="margin-bottom:8px;"><strong>Kunci Jawaban:</strong> ${keyDisplay}</p>
+            <p><strong>Pembahasan:</strong> ${q.explanation}</p>
+        `;
+        list.appendChild(div);
+    });
+}
+
+function exitApp() {
+    if (confirm("Apakah Anda yakin ingin keluar dari aplikasi latihan?")) {
+        location.reload();
+    }
+}
+</script>
+</body>
+</html>
